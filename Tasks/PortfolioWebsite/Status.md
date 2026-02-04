@@ -8,7 +8,7 @@
 | 3 | BaseLayoutNavigation | Done | 1.5h | 15m | Single-page structure, smooth scroll |
 | 4 | HeroParticleScene | Done | 2h | 20m | Three.js space particles |
 | 5 | GSAPScrollAnimations | Done | 1.5h | 15m | ScrollTrigger animations |
-| 6 | ProjectsSection | Todo | 1.5h | | 2 project cards |
+| 6 | ProjectsSection | Done | 1.5h | 10m | 2 project cards |
 | 7 | SkillsSection | Todo | 1h | | Skills display |
 | 8 | ContactSection | Todo | 1h | | Contact links |
 | 9 | ResponsiveStyling | Todo | 1.5h | | Mobile/tablet/desktop |

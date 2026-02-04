@@ -2,8 +2,27 @@
 import { onMounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import ProjectCard, { type Project } from './ProjectCard.vue'
 
 gsap.registerPlugin(ScrollTrigger)
+
+// Placeholder projects - update with real data later
+const projects: Project[] = [
+  {
+    title: 'E-Commerce Platform',
+    description: 'A full-featured online store with product catalog, shopping cart, secure checkout, and order management. Built with modern web technologies for optimal performance.',
+    techStack: ['Vue.js', 'Node.js', 'PostgreSQL', 'Stripe'],
+    liveUrl: 'https://example.com',
+    githubUrl: 'https://github.com'
+  },
+  {
+    title: 'Task Management App',
+    description: 'A collaborative task manager with real-time updates, team workspaces, and progress tracking. Features drag-and-drop interface and notification system.',
+    techStack: ['React', 'TypeScript', 'Firebase', 'Tailwind'],
+    liveUrl: 'https://example.com',
+    githubUrl: 'https://github.com'
+  }
+]
 
 onMounted(() => {
   // Animate section title
@@ -57,21 +76,11 @@ onMounted(() => {
       </p>
 
       <div class="projects__grid">
-        <div class="project-card project-card--placeholder">
-          <div class="project-card__image"></div>
-          <div class="project-card__content">
-            <h3>Project 1</h3>
-            <p>Project description coming soon...</p>
-          </div>
-        </div>
-
-        <div class="project-card project-card--placeholder">
-          <div class="project-card__image"></div>
-          <div class="project-card__content">
-            <h3>Project 2</h3>
-            <p>Project description coming soon...</p>
-          </div>
-        </div>
+        <ProjectCard
+          v-for="project in projects"
+          :key="project.title"
+          :project="project"
+        />
       </div>
     </div>
   </section>
@@ -99,35 +108,6 @@ onMounted(() => {
   gap: var(--space-8);
   max-width: 900px;
   margin: 0 auto;
-}
-
-.project-card {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-glow);
-}
-
-.project-card--placeholder .project-card__image {
-  height: 200px;
-  background: linear-gradient(135deg, var(--color-bg), var(--color-surface));
-}
-
-.project-card__content {
-  padding: var(--space-6);
-}
-
-.project-card__content h3 {
-  margin-bottom: var(--space-2);
-}
-
-.project-card__content p {
-  color: var(--color-text-secondary);
 }
 
 @media (max-width: 480px) {
