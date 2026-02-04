@@ -1,5 +1,49 @@
 <script setup lang="ts">
-// Projects section - will display 2 project cards
+import { onMounted } from 'vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+onMounted(() => {
+  // Animate section title
+  gsap.from('.projects .section__title', {
+    y: 60,
+    opacity: 0,
+    duration: 1,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.projects',
+      start: 'top 80%'
+    }
+  })
+
+  // Animate subtitle
+  gsap.from('.projects .section__subtitle', {
+    y: 40,
+    opacity: 0,
+    duration: 1,
+    delay: 0.2,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.projects',
+      start: 'top 80%'
+    }
+  })
+
+  // Animate project cards with stagger
+  gsap.from('.project-card', {
+    y: 80,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.projects__grid',
+      start: 'top 85%'
+    }
+  })
+})
 </script>
 
 <template>
@@ -13,7 +57,6 @@
       </p>
 
       <div class="projects__grid">
-        <!-- Project cards will be added here -->
         <div class="project-card project-card--placeholder">
           <div class="project-card__image"></div>
           <div class="project-card__content">

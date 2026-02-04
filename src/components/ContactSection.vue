@@ -1,11 +1,68 @@
 <script setup lang="ts">
-// Contact section - social links and contact info
+import { onMounted } from 'vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const socialLinks = [
   { name: 'GitHub', icon: 'github', url: 'https://github.com/' },
   { name: 'LinkedIn', icon: 'linkedin', url: 'https://linkedin.com/in/' },
   { name: 'Email', icon: 'email', url: 'mailto:hello@example.com' }
 ]
+
+onMounted(() => {
+  // Animate section title
+  gsap.from('.contact .section__title', {
+    y: 60,
+    opacity: 0,
+    duration: 1,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.contact',
+      start: 'top 80%'
+    }
+  })
+
+  // Animate subtitle
+  gsap.from('.contact .section__subtitle', {
+    y: 40,
+    opacity: 0,
+    duration: 1,
+    delay: 0.2,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.contact',
+      start: 'top 80%'
+    }
+  })
+
+  // Animate contact links with stagger
+  gsap.from('.contact__link', {
+    y: 40,
+    opacity: 0,
+    scale: 0.9,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: 'back.out(1.7)',
+    scrollTrigger: {
+      trigger: '.contact__links',
+      start: 'top 85%'
+    }
+  })
+
+  // Animate footer
+  gsap.from('.footer', {
+    opacity: 0,
+    duration: 1,
+    delay: 0.5,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.footer',
+      start: 'top 95%'
+    }
+  })
+})
 </script>
 
 <template>

@@ -1,5 +1,62 @@
 <script setup lang="ts">
-// Skills section - will display skills grouped by category
+import { onMounted } from 'vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+onMounted(() => {
+  // Animate section title
+  gsap.from('.skills .section__title', {
+    y: 60,
+    opacity: 0,
+    duration: 1,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.skills',
+      start: 'top 80%'
+    }
+  })
+
+  // Animate subtitle
+  gsap.from('.skills .section__subtitle', {
+    y: 40,
+    opacity: 0,
+    duration: 1,
+    delay: 0.2,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.skills',
+      start: 'top 80%'
+    }
+  })
+
+  // Animate skill categories with stagger
+  gsap.from('.skill-category', {
+    y: 60,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.skills__categories',
+      start: 'top 85%'
+    }
+  })
+
+  // Animate skill tags with stagger
+  gsap.from('.skill-tag', {
+    scale: 0.8,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.05,
+    ease: 'back.out(1.7)',
+    scrollTrigger: {
+      trigger: '.skills__categories',
+      start: 'top 75%'
+    }
+  })
+})
 </script>
 
 <template>
@@ -13,7 +70,6 @@
       </p>
 
       <div class="skills__categories">
-        <!-- Skill categories will be populated here -->
         <div class="skill-category">
           <h3 class="skill-category__title">Frontend</h3>
           <div class="skill-category__tags">
