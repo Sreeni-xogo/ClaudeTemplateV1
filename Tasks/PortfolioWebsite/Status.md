@@ -10,7 +10,7 @@
 | 5 | GSAPScrollAnimations | Done | 1.5h | 15m | ScrollTrigger animations |
 | 6 | ProjectsSection | Done | 1.5h | 10m | 2 project cards |
 | 7 | SkillsSection | Done | 1h | 10m | Skills display |
-| 8 | ContactSection | Todo | 1h | | Contact links |
+| 8 | ContactSection | Done | 1h | 10m | Contact links |
 | 9 | ResponsiveStyling | Todo | 1.5h | | Mobile/tablet/desktop |
 | 10 | NetlifyDeployment | Todo | 1h | | Deploy to Netlify |
 
