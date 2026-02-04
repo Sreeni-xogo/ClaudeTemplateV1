@@ -5,6 +5,31 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+interface SkillCategory {
+  title: string
+  icon: string
+  skills: string[]
+}
+
+// Placeholder skills - update with your actual skills
+const skillCategories: SkillCategory[] = [
+  {
+    title: 'Frontend',
+    icon: '◈',
+    skills: ['Vue.js', 'React', 'TypeScript', 'JavaScript', 'HTML/CSS', 'Tailwind CSS', 'GSAP', 'Three.js']
+  },
+  {
+    title: 'Backend',
+    icon: '◉',
+    skills: ['Node.js', 'Python', 'Express', 'PostgreSQL', 'MongoDB', 'REST APIs', 'GraphQL']
+  },
+  {
+    title: 'Tools & DevOps',
+    icon: '◎',
+    skills: ['Git', 'Docker', 'AWS', 'CI/CD', 'VS Code', 'Figma', 'Linux', 'Netlify']
+  }
+]
+
 onMounted(() => {
   // Animate section title
   gsap.from('.skills .section__title', {
@@ -49,7 +74,7 @@ onMounted(() => {
     scale: 0.8,
     opacity: 0,
     duration: 0.5,
-    stagger: 0.05,
+    stagger: 0.03,
     ease: 'back.out(1.7)',
     scrollTrigger: {
       trigger: '.skills__categories',
@@ -70,33 +95,23 @@ onMounted(() => {
       </p>
 
       <div class="skills__categories">
-        <div class="skill-category">
-          <h3 class="skill-category__title">Frontend</h3>
-          <div class="skill-category__tags">
-            <span class="skill-tag">Vue.js</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">CSS/SCSS</span>
+        <div
+          v-for="category in skillCategories"
+          :key="category.title"
+          class="skill-category"
+        >
+          <div class="skill-category__header">
+            <span class="skill-category__icon">{{ category.icon }}</span>
+            <h3 class="skill-category__title">{{ category.title }}</h3>
           </div>
-        </div>
-
-        <div class="skill-category">
-          <h3 class="skill-category__title">Backend</h3>
           <div class="skill-category__tags">
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">REST APIs</span>
-          </div>
-        </div>
-
-        <div class="skill-category">
-          <h3 class="skill-category__title">Tools</h3>
-          <div class="skill-category__tags">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">VS Code</span>
-            <span class="skill-tag">Figma</span>
+            <span
+              v-for="skill in category.skills"
+              :key="skill"
+              class="skill-tag"
+            >
+              {{ skill }}
+            </span>
           </div>
         </div>
       </div>
@@ -123,41 +138,69 @@ onMounted(() => {
 
 .skills__categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-8);
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .skill-category {
-  text-align: center;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  border: 1px solid transparent;
+  transition: all var(--transition-base);
+}
+
+.skill-category:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: var(--shadow-glow);
+}
+
+.skill-category__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.skill-category__icon {
+  font-size: var(--text-2xl);
+  color: var(--color-primary);
 }
 
 .skill-category__title {
   font-size: var(--text-xl);
-  margin-bottom: var(--space-4);
-  color: var(--color-primary);
+  color: var(--color-text);
+  font-weight: var(--font-semibold);
 }
 
 .skill-category__tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  justify-content: center;
 }
 
 .skill-tag {
-  background: var(--color-bg);
+  background: var(--color-surface);
   color: var(--color-text-secondary);
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-full);
   font-size: var(--text-sm);
   border: 1px solid transparent;
   transition: all var(--transition-fast);
+  cursor: default;
 }
 
 .skill-tag:hover {
   border-color: var(--color-primary);
   color: var(--color-text);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .skills__categories {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
