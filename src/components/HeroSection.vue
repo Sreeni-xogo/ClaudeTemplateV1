@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import ParticleScene from './ParticleScene.vue'
-
 const scrollToSection = (href: string) => {
   const element = document.querySelector(href)
   if (element) {
@@ -11,9 +9,6 @@ const scrollToSection = (href: string) => {
 
 <template>
   <section id="hero" class="hero">
-    <div class="hero__canvas">
-      <ParticleScene />
-    </div>
     <div class="hero__content">
       <h1 class="hero__title">
         Hi, I'm <span class="text-gradient">Sreeni</span>
@@ -52,15 +47,6 @@ const scrollToSection = (href: string) => {
   justify-content: center;
   position: relative;
   overflow: hidden;
-}
-
-.hero__canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
 }
 
 .hero__content {

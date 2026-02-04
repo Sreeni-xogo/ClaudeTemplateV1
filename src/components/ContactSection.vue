@@ -44,7 +44,9 @@ onMounted(() => {
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.contact',
-      start: 'top 80%'
+      start: 'top 80%',
+      end: 'top 20%',
+      toggleActions: 'play reverse play reverse'
     }
   })
 
@@ -57,7 +59,9 @@ onMounted(() => {
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.contact',
-      start: 'top 80%'
+      start: 'top 80%',
+      end: 'top 20%',
+      toggleActions: 'play reverse play reverse'
     }
   })
 
@@ -70,7 +74,9 @@ onMounted(() => {
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.contact',
-      start: 'top 80%'
+      start: 'top 80%',
+      end: 'top 20%',
+      toggleActions: 'play reverse play reverse'
     }
   })
 
@@ -84,7 +90,9 @@ onMounted(() => {
     ease: 'back.out(1.7)',
     scrollTrigger: {
       trigger: '.contact__links',
-      start: 'top 85%'
+      start: 'top 85%',
+      end: 'top 20%',
+      toggleActions: 'play reverse play reverse'
     }
   })
 
@@ -96,7 +104,9 @@ onMounted(() => {
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '.footer',
-      start: 'top 95%'
+      start: 'top 95%',
+      end: 'top 50%',
+      toggleActions: 'play reverse play reverse'
     }
   })
 })

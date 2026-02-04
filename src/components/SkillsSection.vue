@@ -39,7 +39,9 @@ onMounted(() => {
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.skills',
-      start: 'top 80%'
+      start: 'top 80%',
+      end: 'top 20%',
+      toggleActions: 'play reverse play reverse'
     }
   })
 
@@ -52,7 +54,9 @@ onMounted(() => {
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.skills',
-      start: 'top 80%'
+      start: 'top 80%',
+      end: 'top 20%',
+      toggleActions: 'play reverse play reverse'
     }
   })
 
@@ -65,7 +69,9 @@ onMounted(() => {
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.skills__categories',
-      start: 'top 85%'
+      start: 'top 85%',
+      end: 'top 20%',
+      toggleActions: 'play reverse play reverse'
     }
   })
 
@@ -78,7 +84,9 @@ onMounted(() => {
     ease: 'back.out(1.7)',
     scrollTrigger: {
       trigger: '.skills__categories',
-      start: 'top 75%'
+      start: 'top 75%',
+      end: 'top 20%',
+      toggleActions: 'play reverse play reverse'
     }
   })
 })

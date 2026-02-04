@@ -33,7 +33,9 @@ onMounted(() => {
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.projects',
-      start: 'top 80%'
+      start: 'top 80%',
+      end: 'top 20%',
+      toggleActions: 'play reverse play reverse'
     }
   })
 
@@ -46,7 +48,9 @@ onMounted(() => {
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.projects',
-      start: 'top 80%'
+      start: 'top 80%',
+      end: 'top 20%',
+      toggleActions: 'play reverse play reverse'
     }
   })
 
@@ -59,7 +63,9 @@ onMounted(() => {
     ease: 'power3.out',
     scrollTrigger: {
       trigger: '.projects__grid',
-      start: 'top 85%'
+      start: 'top 85%',
+      end: 'top 20%',
+      toggleActions: 'play reverse play reverse'
     }
   })
 })
