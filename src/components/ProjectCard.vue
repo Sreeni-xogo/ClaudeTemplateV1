@@ -186,4 +186,26 @@ defineProps<{
 .project-link__icon {
   font-size: var(--text-base);
 }
+
+@media (max-width: 480px) {
+  .project-card__image {
+    height: 160px;
+  }
+
+  .project-card__content {
+    padding: var(--space-4);
+  }
+
+  .project-card__title {
+    font-size: var(--text-lg);
+  }
+
+  .project-card__links {
+    flex-direction: column;
+  }
+
+  .project-link {
+    justify-content: center;
+  }
+}
 </style>

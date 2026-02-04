@@ -110,9 +110,28 @@ onMounted(() => {
   margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+  .projects {
+    padding: var(--space-16) 0;
+  }
+
+  .section__subtitle {
+    margin-bottom: var(--space-8);
+  }
+
+  .projects__grid {
+    gap: var(--space-6);
+  }
+}
+
 @media (max-width: 480px) {
+  .projects {
+    padding: var(--space-12) 0;
+  }
+
   .projects__grid {
     grid-template-columns: 1fr;
+    gap: var(--space-4);
   }
 }
 </style>

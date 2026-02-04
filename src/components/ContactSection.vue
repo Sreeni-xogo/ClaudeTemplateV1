@@ -235,14 +235,48 @@ onMounted(() => {
   opacity: 0.7;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .contact {
+    padding: var(--space-16) 0;
+  }
+
+  .contact__cta {
+    font-size: var(--text-base);
+  }
+
   .contact__links {
     gap: var(--space-4);
   }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: var(--space-12) 0;
+  }
+
+  .contact__cta {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-8);
+  }
+
+  .contact__links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
 
   .contact__link {
-    min-width: 100px;
+    min-width: unset;
     padding: var(--space-4);
+  }
+
+  .contact__link-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .contact__link-name {
+    font-size: var(--text-xs);
   }
 }
 </style>

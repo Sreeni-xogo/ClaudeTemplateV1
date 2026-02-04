@@ -130,12 +130,46 @@ const scrollToSection = (href: string) => {
 }
 
 @media (max-width: 768px) {
+  .hero__content {
+    padding: 0 var(--space-4);
+  }
+
   .hero__title {
     font-size: var(--text-4xl);
   }
 
   .hero__subtitle {
     font-size: var(--text-xl);
+  }
+
+  .hero__description {
+    font-size: var(--text-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: calc(100vh - 60px);
+    padding-top: 60px;
+  }
+
+  .hero__title {
+    font-size: var(--text-3xl);
+  }
+
+  .hero__subtitle {
+    font-size: var(--text-lg);
+  }
+
+  .hero__cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
   }
 }
 </style>

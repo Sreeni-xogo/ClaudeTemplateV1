@@ -199,8 +199,36 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
+  .skills {
+    padding: var(--space-16) 0;
+  }
+
+  .section__subtitle {
+    margin-bottom: var(--space-8);
+  }
+
   .skills__categories {
     grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills {
+    padding: var(--space-12) 0;
+  }
+
+  .skill-category {
+    padding: var(--space-4);
+  }
+
+  .skill-category__title {
+    font-size: var(--text-lg);
+  }
+
+  .skill-tag {
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--text-xs);
   }
 }
 </style>
