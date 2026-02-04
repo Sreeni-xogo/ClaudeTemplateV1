@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -30,65 +30,84 @@ const skillCategories: SkillCategory[] = [
   }
 ]
 
+let ctx: gsap.Context
+
 onMounted(() => {
-  // Animate section title
-  gsap.from('.skills .section__title', {
-    y: 60,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.skills',
-      start: 'top 80%',
-      end: 'top 20%',
-      toggleActions: 'play reverse play reverse'
-    }
-  })
+  ctx = gsap.context(() => {
+    // Animate section title
+    gsap.fromTo('.skills .section__title',
+      { y: 60, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.skills',
+          start: 'top 80%',
+          end: 'top 50%',
+          scrub: 1
+        }
+      }
+    )
 
-  // Animate subtitle
-  gsap.from('.skills .section__subtitle', {
-    y: 40,
-    opacity: 0,
-    duration: 1,
-    delay: 0.2,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.skills',
-      start: 'top 80%',
-      end: 'top 20%',
-      toggleActions: 'play reverse play reverse'
-    }
-  })
+    // Animate subtitle
+    gsap.fromTo('.skills .section__subtitle',
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.skills',
+          start: 'top 75%',
+          end: 'top 45%',
+          scrub: 1
+        }
+      }
+    )
 
-  // Animate skill categories with stagger
-  gsap.from('.skill-category', {
-    y: 60,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.skills__categories',
-      start: 'top 85%',
-      end: 'top 20%',
-      toggleActions: 'play reverse play reverse'
-    }
-  })
+    // Animate skill categories with stagger
+    gsap.fromTo('.skill-category',
+      { y: 60, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.skills__categories',
+          start: 'top 85%',
+          end: 'top 40%',
+          scrub: 1
+        }
+      }
+    )
 
-  // Animate skill tags with stagger
-  gsap.from('.skill-tag', {
-    scale: 0.8,
-    opacity: 0,
-    duration: 0.5,
-    stagger: 0.03,
-    ease: 'back.out(1.7)',
-    scrollTrigger: {
-      trigger: '.skills__categories',
-      start: 'top 75%',
-      end: 'top 20%',
-      toggleActions: 'play reverse play reverse'
-    }
+    // Animate skill tags with stagger
+    gsap.fromTo('.skill-tag',
+      { scale: 0.8, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.02,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.skills__categories',
+          start: 'top 70%',
+          end: 'top 30%',
+          scrub: 1
+        }
+      }
+    )
   })
+})
+
+onUnmounted(() => {
+  ctx?.revert()
 })
 </script>
 

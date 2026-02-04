@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ProjectCard, { type Project } from './ProjectCard.vue'
@@ -24,50 +24,66 @@ const projects: Project[] = [
   }
 ]
 
+let ctx: gsap.Context
+
 onMounted(() => {
-  // Animate section title
-  gsap.from('.projects .section__title', {
-    y: 60,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.projects',
-      start: 'top 80%',
-      end: 'top 20%',
-      toggleActions: 'play reverse play reverse'
-    }
-  })
+  ctx = gsap.context(() => {
+    // Animate section title
+    gsap.fromTo('.projects .section__title',
+      { y: 60, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.projects',
+          start: 'top 80%',
+          end: 'top 50%',
+          scrub: 1
+        }
+      }
+    )
 
-  // Animate subtitle
-  gsap.from('.projects .section__subtitle', {
-    y: 40,
-    opacity: 0,
-    duration: 1,
-    delay: 0.2,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.projects',
-      start: 'top 80%',
-      end: 'top 20%',
-      toggleActions: 'play reverse play reverse'
-    }
-  })
+    // Animate subtitle
+    gsap.fromTo('.projects .section__subtitle',
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.projects',
+          start: 'top 75%',
+          end: 'top 45%',
+          scrub: 1
+        }
+      }
+    )
 
-  // Animate project cards with stagger
-  gsap.from('.project-card', {
-    y: 80,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.projects__grid',
-      start: 'top 85%',
-      end: 'top 20%',
-      toggleActions: 'play reverse play reverse'
-    }
+    // Animate project cards with stagger
+    gsap.fromTo('.project-card',
+      { y: 80, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.projects__grid',
+          start: 'top 85%',
+          end: 'top 40%',
+          scrub: 1
+        }
+      }
+    )
   })
+})
+
+onUnmounted(() => {
+  ctx?.revert()
 })
 </script>
 

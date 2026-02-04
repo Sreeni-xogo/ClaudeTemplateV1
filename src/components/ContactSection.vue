@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -35,80 +35,100 @@ const socialLinks: SocialLink[] = [
   }
 ]
 
+let ctx: gsap.Context
+
 onMounted(() => {
-  // Animate section title
-  gsap.from('.contact .section__title', {
-    y: 60,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.contact',
-      start: 'top 80%',
-      end: 'top 20%',
-      toggleActions: 'play reverse play reverse'
-    }
-  })
+  ctx = gsap.context(() => {
+    // Animate section title
+    gsap.fromTo('.contact .section__title',
+      { y: 60, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.contact',
+          start: 'top 80%',
+          end: 'top 50%',
+          scrub: 1
+        }
+      }
+    )
 
-  // Animate subtitle
-  gsap.from('.contact .section__subtitle', {
-    y: 40,
-    opacity: 0,
-    duration: 1,
-    delay: 0.2,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.contact',
-      start: 'top 80%',
-      end: 'top 20%',
-      toggleActions: 'play reverse play reverse'
-    }
-  })
+    // Animate subtitle
+    gsap.fromTo('.contact .section__subtitle',
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.contact',
+          start: 'top 75%',
+          end: 'top 45%',
+          scrub: 1
+        }
+      }
+    )
 
-  // Animate CTA text
-  gsap.from('.contact__cta', {
-    y: 30,
-    opacity: 0,
-    duration: 0.8,
-    delay: 0.3,
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: '.contact',
-      start: 'top 80%',
-      end: 'top 20%',
-      toggleActions: 'play reverse play reverse'
-    }
-  })
+    // Animate CTA text
+    gsap.fromTo('.contact__cta',
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.contact',
+          start: 'top 70%',
+          end: 'top 40%',
+          scrub: 1
+        }
+      }
+    )
 
-  // Animate contact links with stagger
-  gsap.from('.contact__link', {
-    y: 40,
-    opacity: 0,
-    scale: 0.9,
-    duration: 0.6,
-    stagger: 0.1,
-    ease: 'back.out(1.7)',
-    scrollTrigger: {
-      trigger: '.contact__links',
-      start: 'top 85%',
-      end: 'top 20%',
-      toggleActions: 'play reverse play reverse'
-    }
-  })
+    // Animate contact links with stagger
+    gsap.fromTo('.contact__link',
+      { y: 40, opacity: 0, scale: 0.9 },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.contact__links',
+          start: 'top 85%',
+          end: 'top 50%',
+          scrub: 1
+        }
+      }
+    )
 
-  // Animate footer
-  gsap.from('.footer', {
-    opacity: 0,
-    duration: 1,
-    delay: 0.5,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.footer',
-      start: 'top 95%',
-      end: 'top 50%',
-      toggleActions: 'play reverse play reverse'
-    }
+    // Animate footer
+    gsap.fromTo('.footer',
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.footer',
+          start: 'top 95%',
+          end: 'top 70%',
+          scrub: 1
+        }
+      }
+    )
   })
+})
+
+onUnmounted(() => {
+  ctx?.revert()
 })
 </script>
 
