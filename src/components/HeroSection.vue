@@ -1,9 +1,19 @@
 <script setup lang="ts">
-// Hero section - will contain Three.js particle animation
+import ParticleScene from './ParticleScene.vue'
+
+const scrollToSection = (href: string) => {
+  const element = document.querySelector(href)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 
 <template>
   <section id="hero" class="hero">
+    <div class="hero__canvas">
+      <ParticleScene />
+    </div>
     <div class="hero__content">
       <h1 class="hero__title">
         Hi, I'm <span class="text-gradient">Sreeni</span>
@@ -15,12 +25,21 @@
         Building interactive web experiences with modern technologies.
       </p>
       <div class="hero__cta">
-        <a href="#projects" class="btn btn--primary">View Projects</a>
-        <a href="#contact" class="btn btn--outline">Get in Touch</a>
+        <a
+          href="#projects"
+          class="btn btn--primary"
+          @click.prevent="scrollToSection('#projects')"
+        >
+          View Projects
+        </a>
+        <a
+          href="#contact"
+          class="btn btn--outline"
+          @click.prevent="scrollToSection('#contact')"
+        >
+          Get in Touch
+        </a>
       </div>
-    </div>
-    <div class="hero__canvas">
-      <!-- Three.js canvas will be mounted here -->
     </div>
   </section>
 </template>

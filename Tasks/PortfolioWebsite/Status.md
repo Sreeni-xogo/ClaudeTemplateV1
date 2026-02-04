@@ -6,7 +6,7 @@
 | 1 | ProjectSetup | Done | 1h | 15m | Vue 3 + TS + Vite, Three.js, GSAP |
 | 2 | DesignExploration | Done | 1.5h | 10m | Colors, typography, wireframe |
 | 3 | BaseLayoutNavigation | Done | 1.5h | 15m | Single-page structure, smooth scroll |
-| 4 | HeroParticleScene | Todo | 2h | | Three.js space particles |
+| 4 | HeroParticleScene | Done | 2h | 20m | Three.js space particles |
 | 5 | GSAPScrollAnimations | Todo | 1.5h | | ScrollTrigger animations |
 | 6 | ProjectsSection | Todo | 1.5h | | 2 project cards |
 | 7 | SkillsSection | Todo | 1h | | Skills display |
