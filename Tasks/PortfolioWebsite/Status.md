@@ -1,0 +1,22 @@
+# Status — Portfolio Website
+
+## Tasks
+| No. | Name | Status | Est. | Actual | Notes |
+|----:|------|--------|-----:|-------:|-------|
+| 1 | ProjectSetup | Todo | 1h | | Vue 3 + TS + Vite, Three.js, GSAP |
+| 2 | DesignExploration | Todo | 1.5h | | Colors, typography, wireframe |
+| 3 | BaseLayoutNavigation | Todo | 1.5h | | Single-page structure, smooth scroll |
+| 4 | HeroParticleScene | Todo | 2h | | Three.js space particles |
+| 5 | GSAPScrollAnimations | Todo | 1.5h | | ScrollTrigger animations |
+| 6 | ProjectsSection | Todo | 1.5h | | 2 project cards |
+| 7 | SkillsSection | Todo | 1h | | Skills display |
+| 8 | ContactSection | Todo | 1h | | Contact links |
+| 9 | ResponsiveStyling | Todo | 1.5h | | Mobile/tablet/desktop |
+| 10 | NetlifyDeployment | Todo | 1h | | Deploy to Netlify |
+
+> Claude may update **Status** column. Human owns **Actual** column.
+
+## Project State
+- **Status**: Active
+- **Reason**:
+- **Revisit trigger**:
