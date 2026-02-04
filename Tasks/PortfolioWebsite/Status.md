@@ -3,7 +3,7 @@
 ## Tasks
 | No. | Name | Status | Est. | Actual | Notes |
 |----:|------|--------|-----:|-------:|-------|
-| 1 | ProjectSetup | Todo | 1h | | Vue 3 + TS + Vite, Three.js, GSAP |
+| 1 | ProjectSetup | Done | 1h | 15m | Vue 3 + TS + Vite, Three.js, GSAP |
 | 2 | DesignExploration | Todo | 1.5h | | Colors, typography, wireframe |
 | 3 | BaseLayoutNavigation | Todo | 1.5h | | Single-page structure, smooth scroll |
 | 4 | HeroParticleScene | Todo | 2h | | Three.js space particles |

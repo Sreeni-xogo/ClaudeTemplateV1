@@ -24,8 +24,8 @@ secrets/
 .DS_Store
 Thumbs.db
 
-# Dependencies (uncomment as needed for your stack)
-# node_modules/
+# Dependencies
+node_modules/
 # vendor/
 # __pycache__/
 # *.pyc
@@ -34,8 +34,8 @@ Thumbs.db
 # bin/
 # obj/
 
-# Build outputs (uncomment as needed)
-# dist/
+# Build outputs
+dist/
 # build/
 # out/
 # *.o
