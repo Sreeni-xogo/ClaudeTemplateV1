@@ -1,21 +1,29 @@
 <script setup lang="ts">
-// Portfolio App - Vue 3 + TypeScript
+import TheNavbar from './components/TheNavbar.vue'
+import HeroSection from './components/HeroSection.vue'
+import ProjectsSection from './components/ProjectsSection.vue'
+import SkillsSection from './components/SkillsSection.vue'
+import ContactSection from './components/ContactSection.vue'
 </script>
 
 <template>
   <div class="app">
-    <h1>Portfolio</h1>
-    <p>Vue 3 + TypeScript + Vite setup complete.</p>
+    <TheNavbar />
+    <main>
+      <HeroSection />
+      <ProjectsSection />
+      <SkillsSection />
+      <ContactSection />
+    </main>
   </div>
 </template>
 
 <style scoped>
 .app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh;
-  color: #fff;
+}
+
+main {
+  width: 100%;
 }
 </style>
